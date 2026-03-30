@@ -70,7 +70,7 @@ AI-ELearning-Platform/
 
 ### 1️⃣ Clone the Repository
 
-git clone https://github.com/your-username/AI-ELearning-Platform.git
+git clone https://github.com/AtheefaA/AI-ELearning-Platform/tree/main
 cd AI-ELearning-Platform
 
 
