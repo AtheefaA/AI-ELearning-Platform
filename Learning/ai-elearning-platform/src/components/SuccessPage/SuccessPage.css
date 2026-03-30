@@ -1,0 +1,209 @@
+/* ── OVERLAY ── */
+/* ── OVERLAY (FIXED LIKE ENROLL) ── */
+.success-overlay {
+  position: fixed;
+  top: 80px; /* match navbar */
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 80px);
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* 🔥 important */
+
+  overflow-y: auto; /* ✅ enables scroll */
+
+  background: rgba(15, 10, 40, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  z-index: 999;
+  padding: 30px 15px;
+  box-sizing: border-box;
+}
+
+/* ── CARD ── */
+.success-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 460px;
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(124, 58, 237, 0.25);
+  opacity: 0;
+  transform: scale(0.92) translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  margin: auto 0;
+}
+
+.success-card--in {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+body.dark-mode .success-card {
+  background: #1e1b2e;
+  color: #f3f0ff;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+/* ── ANIMATED CHECK ICON ── */
+.success-icon-wrap {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.4rem;
+}
+
+.checkmark-svg {
+  width: 80px;
+  height: 80px;
+}
+
+.checkmark-circle {
+  stroke: #7c3aed;
+  stroke-width: 2.2;
+  stroke-dasharray: 160;
+  stroke-dashoffset: 160;
+  animation: drawCircle 0.55s ease forwards 0.1s;
+}
+
+.checkmark-tick {
+  stroke: #7c3aed;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  animation: drawTick 0.4s ease forwards 0.65s;
+}
+
+@keyframes drawCircle { to { stroke-dashoffset: 0; } }
+@keyframes drawTick   { to { stroke-dashoffset: 0; } }
+
+/* ── TEXT ── */
+.success-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #7c3aed;
+  margin: 0 0 6px;
+}
+
+.success-sub {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0 0 4px;
+}
+
+body.dark-mode .success-sub {
+  color: #9ca3af;
+}
+
+.success-course-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #4c1d95;
+  margin: 0 0 1.4rem;
+}
+
+body.dark-mode .success-course-name {
+  color: #c4b5fd;
+}
+
+/* ── RECEIPT ── */
+.success-receipt {
+  background: #faf5ff;
+  border: 1.5px solid #ede9fe;
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+body.dark-mode .success-receipt {
+  background: #2d2545;
+  border-color: #4c1d95;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  font-size: 0.88rem;
+  color: #374151;
+  border-bottom: 1px solid #ede9fe;
+}
+
+.receipt-row:last-child {
+  border-bottom: none;
+}
+
+body.dark-mode .receipt-row {
+  color: #d1d5db;
+  border-bottom-color: #4c1d95;
+}
+
+.receipt-row span:first-child {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+body.dark-mode .receipt-row span:first-child {
+  color: #9ca3af;
+}
+
+.receipt-amount {
+  font-weight: 800;
+  color: #7c3aed;
+  font-size: 1rem;
+}
+
+.receipt-status {
+  font-weight: 700;
+  color: #16a34a;
+  font-size: 0.85rem;
+}
+
+/* ── NOTE ── */
+.success-note {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+body.dark-mode .success-note {
+  color: #9ca3af;
+}
+
+/* ── BUTTON ── */
+.btn-success-back {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #7c3aed, #9333ea);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s;
+  font-family: inherit;
+}
+
+.btn-success-back:hover {
+  background: linear-gradient(135deg, #9333ea, #a855f7);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(124, 58, 237, 0.4);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 500px) {
+  .success-card {
+    padding: 2rem 1.2rem;
+    border-radius: 18px;
+  }
+
+  .success-title { font-size: 1.4rem; }
+}

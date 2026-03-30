@@ -1,0 +1,182 @@
+/* ════════════════════════════════
+   GLOBAL RESET + SCROLL FIX
+════════════════════════════════ */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto !important;
+}
+
+/* 🔥 FORCE ROOT FULL WIDTH (VERY IMPORTANT) */
+#root {
+  width: 100% !important;
+  display: block !important;
+}
+
+/* 🔥 OVERRIDE ANY PARENT FLEX/GRID ISSUE */
+.app, .main, .layout {
+  display: block !important;
+  width: 100% !important;
+}
+
+/* ════════════════════════════════
+   PROFILE PAGE (SIMPLIFIED)
+════════════════════════════════ */
+.profile-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 20px;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+/* ════════════════════════════════
+   CENTER FIX (MAIN SOLUTION)
+════════════════════════════════ */
+.profile-wrapper {
+  width: 100%;
+  max-width: 700px;
+  margin: 120px auto 60px auto !important; /* ✅ PERFECT CENTER */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  overflow: visible;
+  box-shadow: 0 10px 40px rgba(124, 58, 237, 0.15);
+  background: #fff;
+}
+
+/* ════════════════════════════════
+   BANNER
+════════════════════════════════ */
+.profile-banner {
+  width: 100%;
+  height: 160px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  border-radius: 20px 20px 0 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* AVATAR */
+.profile-avatar-wrap {
+  position: absolute;
+  bottom: -50px;
+  width: 100px;
+  height: 100px;
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  object-fit: cover;
+}
+
+/* ════════════════════════════════
+   IDENTITY
+════════════════════════════════ */
+.profile-identity {
+  width: 100%;
+  text-align: center;
+  padding: 65px 20px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.profile-name {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.profile-email {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+.profile-role-badge {
+  display: inline-block;
+  margin-top: 10px;
+  background: #ede9fe;
+  color: #7c3aed;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+/* ════════════════════════════════
+   STATS
+════════════════════════════════ */
+.profile-stats {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.profile-stat {
+  text-align: center;
+}
+
+.profile-stat h4 {
+  color: #7c3aed;
+  margin: 0;
+}
+
+.profile-stat p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: gray;
+}
+
+/* ════════════════════════════════
+   INFO GRID
+════════════════════════════════ */
+.profile-info-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: #eee;
+}
+
+.profile-info-card {
+  background: #fff;
+  padding: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+/* ════════════════════════════════
+   LOGOUT BUTTON
+════════════════════════════════ */
+.profile-logout-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background: #fff;
+  color: red;
+  border-top: 1px solid #eee;
+  border-radius: 0 0 20px 20px;
+  cursor: pointer;
+}
+
+/* ════════════════════════════════
+   RESPONSIVE
+════════════════════════════════ */
+@media (max-width: 600px) {
+  .profile-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-wrapper {
+    margin: 100px auto 40px auto !important;
+  }
+}

@@ -1,0 +1,73 @@
+/* =============================
+   AI LearnX Footer (Atheefa ❤️)
+   Inspired by CodeWithMosh.com
+   ============================= */
+
+.footer-minimal {
+  width: 100%;
+  background: linear-gradient(90deg, #0f172a, #1e293b);
+  color: #cbd5e1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 10%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}
+
+/* Left Section */
+.footer-left p {
+  margin: 0;
+  color: #94a3b8;
+}
+
+/* Center Section - Icons */
+.footer-center {
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-center a {
+  color: #94a3b8;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.footer-center a:hover {
+  color: #8b5cf6; /* purple hover glow */
+  transform: scale(1.15);
+}
+
+/* Right Section */
+.footer-right {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+}
+
+.footer-right a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-right a:hover {
+  color: #8b5cf6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-minimal {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .footer-right {
+    justify-content: center;
+  }
+}

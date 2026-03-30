@@ -1,0 +1,169 @@
+/* ===============================
+   Quiz List Section
+   =============================== */
+.quiz-list-wrapper {
+  padding: 100px 80px 60px; /* space below navbar */
+  /* background: linear-gradient(135deg, #f5f3ff, #ede9fe); */
+  color: #111827;
+  min-height: 100vh;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Section Title */
+.quiz-list-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #6d28d9;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.quiz-list-title::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: #9333ea;
+  display: block;
+  margin: 12px auto 0 auto;
+  border-radius: 2px;
+}
+
+/* ===============================
+   Quiz Cards Grid
+   =============================== */
+.quiz-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  justify-content: center;
+}
+
+/* ===============================
+   Quiz Card
+   =============================== */
+.quiz-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 24px 20px 35px;
+  max-width: 280px;
+  width: 100%;
+  box-shadow: 0 8px 25px rgba(147, 51, 234, 0.15);
+  transition: all 0.4s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(124, 58, 237, 0.3);
+}
+
+/* Floating shine effect */
+.quiz-card::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(147, 51, 234, 0.15) 50%,
+    transparent 70%
+  );
+  transform: rotate(25deg);
+  transition: 0.6s;
+}
+
+.quiz-card:hover::before {
+  top: 100%;
+  left: 100%;
+}
+
+/* Quiz Image */
+.quiz-card-img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* Quiz Title */
+.quiz-card-title {
+  font-size: 1.4rem;
+  color: #7c3aed;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+/* Start Quiz Button */
+.quiz-card-btn {
+  background: linear-gradient(135deg, #7c3aed, #9333ea);
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+}
+
+.quiz-card-btn:hover {
+  background: linear-gradient(135deg, #9333ea, #a855f7);
+  transform: scale(1.08);
+  box-shadow: 0 6px 15px rgba(147, 51, 234, 0.3);
+}
+
+/* ===============================
+   Responsive Design
+   =============================== */
+@media (max-width: 1024px) {
+  .quiz-list-wrapper {
+    padding: 80px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quiz-list-wrapper {
+    padding: 70px 20px;
+  }
+
+  .quiz-list-title {
+    font-size: 2.2rem;
+  }
+
+  .quiz-card-container {
+    gap: 25px;
+  }
+
+  .quiz-card {
+    max-width: 100%;
+  }
+
+  .quiz-card-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .quiz-card-btn {
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  .quiz-list-title {
+    font-size: 2rem;
+  }
+}

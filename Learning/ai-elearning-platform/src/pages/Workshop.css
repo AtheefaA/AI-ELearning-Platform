@@ -1,0 +1,126 @@
+/* === FULL PAGE CENTER (Workshop Page) === */
+.workshop-fullpage-center {
+  position: fixed;
+  top: 80px; /* below navbar */
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+  padding-top: 2rem;
+}
+
+/* === WORKSHOP CONTAINER === */
+.workshop-container {
+  width: 80%;
+  max-width: 900px;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.workshop-container h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.workshop-subtitle {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+/* === WORKSHOP CARD GRID === */
+.workshop-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* === CARD === */
+.workshop-card {
+  background: #ffffff;
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.workshop-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* === CARD HEADER === */
+.workshop-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.workshop-logo {
+  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.workshop-time {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+/* === TEXT === */
+.workshop-card h3 {
+  font-size: 1.1rem;
+  color: #1e293b;
+  margin-bottom: 0.4rem;
+}
+
+.workshop-description {
+  color: #334155;
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+/* === BUTTON === */
+.workshop-btn {
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.workshop-btn:hover {
+  background: linear-gradient(90deg, #4f46e5, #7c3aed);
+  transform: scale(1.05);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .workshop-container {
+    width: 90%;
+  }
+
+  .workshop-card {
+    padding: 1.2rem;
+  }
+}

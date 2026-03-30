@@ -1,0 +1,173 @@
+/* ════════════════════════════════
+   PAGE WRAPPER
+════════════════════════════════ */
+.accomplishments-page-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  padding: 110px 20px 60px;
+  box-sizing: border-box;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  text-align: center;
+}
+
+/* TITLE */
+.accomplishments-page-wrapper h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 5px;
+}
+
+.page-subtitle {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 30px;
+}
+
+/* ════════════════════════════════
+   CONTAINER GRID
+════════════════════════════════ */
+.accomplishments-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* ════════════════════════════════
+   CARD
+════════════════════════════════ */
+.accomplishment-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.12);
+  transition: 0.3s ease;
+}
+
+.accomplishment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(124, 58, 237, 0.2);
+}
+
+/* ════════════════════════════════
+   HEADER
+════════════════════════════════ */
+.accomplishment-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.accomplishment-logo {
+  width: 45px;
+  height: 45px;
+  background: #ede9fe;
+  color: #7c3aed;
+  font-weight: 800;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accomplishment-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #1f2937;
+}
+
+.accomplishment-date {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* ════════════════════════════════
+   DESCRIPTION
+════════════════════════════════ */
+.accomplishment-description {
+  font-size: 0.9rem;
+  color: #374151;
+  margin: 10px 0 15px;
+}
+
+/* ════════════════════════════════
+   CERTIFICATE IMAGE
+════════════════════════════════ */
+.certificate-preview {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.certificate-image {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  transition: 0.3s;
+}
+
+.certificate-image:hover {
+  transform: scale(1.02);
+}
+
+/* ════════════════════════════════
+   BUTTONS
+════════════════════════════════ */
+.certificate-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.certificate-btn {
+  background: #7c3aed;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.certificate-btn:hover {
+  background: #6d28d9;
+}
+
+.download-btn {
+  background: #f3f4f6;
+  color: #1f2937;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.download-btn:hover {
+  background: #e5e7eb;
+}
+
+/* ════════════════════════════════
+   RESPONSIVE
+════════════════════════════════ */
+@media (max-width: 600px) {
+  .accomplishment-card {
+    padding: 15px;
+  }
+
+  .certificate-actions {
+    flex-direction: column;
+  }
+
+  .certificate-btn,
+  .download-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

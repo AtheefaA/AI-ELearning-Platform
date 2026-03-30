@@ -1,0 +1,213 @@
+/* === CONTACT PAGE BELOW NAVBAR === */
+.contact-fullpage-center {
+  position: relative; /* ✅ no fixed, so it sits below navbar naturally */
+  top: 80px; /* height of your navbar */
+  width: 100vw;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  padding: 40px 20px; /* ✅ extra padding for spacing below navbar */
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow-y: auto;
+  /* background: #f9f9ff; optional light background */
+}
+
+/* === CONTACT CARD CONTAINER === */
+.contact-container {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 2.5rem 3rem;
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  transition: transform 0.3s ease;
+}
+
+.contact-container:hover {
+  transform: translateY(-5px);
+}
+
+/* === LEFT SIDE INFO === */
+.contact-left {
+  flex: 1;
+  min-width: 280px;
+  text-align: left;
+}
+
+.contact-title {
+  font-size: 2rem;
+  color: #6d28d9;
+  margin-bottom: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.contact-subtext {
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.contact-email {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+/* === SOCIAL ICONS === */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  font-size: 1.5rem;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.1);
+}
+
+.github:hover { color: #181717; }
+.linkedin:hover { color: #0077b5; }
+.indeed:hover { color: #003a9b; }
+.internshala:hover { color: #00a5ec; }
+
+/* === RIGHT SIDE FORM === */
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: 0.3s;
+}
+
+.contact-form textarea {
+  min-height: 90px; /* ✅ reduced size */
+  max-height: 120px;
+  resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #7c3aed;
+  outline: none;
+}
+
+.contact-form button {
+  background: #7c3aed;
+  color: #fff;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-end;
+}
+
+.contact-form button:hover {
+  background: linear-gradient(135deg, #9333ea, #a855f7);
+  transform: translateY(-3px);
+}
+
+/* === STATUS MESSAGE === */
+.status-message {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  text-align: center;
+}
+.status-message.success { color: #2e7d32; }
+.status-message.error { color: #c62828; }
+
+/* === RESPONSIVE FIX === */
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.8rem;
+    gap: 25px;
+  }
+
+  .contact-left {
+    text-align: center;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .contact-form {
+    width: 100%;
+    max-width: 400px;
+    align-items: center;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+  }
+
+  .contact-form button {
+    align-self: center;
+    width: 60%;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .contact-title {
+    font-size: 1.6rem;
+  }
+
+  .contact-subtext {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 1.5rem;
+    width: 95%;
+  }
+
+  .contact-form button {
+    width: 100%;
+  }
+}

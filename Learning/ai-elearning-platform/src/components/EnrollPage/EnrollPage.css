@@ -1,0 +1,334 @@
+
+/* ===============================
+   ENROLL FULL PAGE CENTER
+================================= */
+.enroll-overlay {
+  position: fixed;
+  top: 80px; /* navbar height */
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 80px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  z-index: 999;
+  scroll-behavior: smooth;
+
+  
+}
+
+/* ===============================
+   ENROLL CARD
+================================= */
+.enroll-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2.2rem;
+  width: 100%;
+  max-width: 500px;
+
+  box-shadow: 0 30px 80px rgba(124, 58, 237, 0.25);
+  animation: slideUp 0.35s ease;
+
+   margin: auto 0;
+}
+
+body.dark-mode .enroll-card {
+  background: #1e1b2e;
+  color: #f3f0ff;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+/* ===============================
+   ANIMATION
+================================= */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===============================
+   HEADER
+================================= */
+.enroll-card-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.enroll-card-header h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #7c3aed;
+  margin-bottom: 4px;
+}
+
+.enroll-card-header p {
+  font-size: 0.88rem;
+  color: #6b7280;
+}
+
+body.dark-mode .enroll-card-header p {
+  color: #9ca3af;
+}
+
+/* ===============================
+   COURSE INFO
+================================= */
+.enroll-course-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: #faf5ff;
+  border: 1.5px solid #ede9fe;
+  border-radius: 16px;
+  padding: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+body.dark-mode .enroll-course-info {
+  background: #2d2545;
+  border-color: #4c1d95;
+}
+
+.enroll-course-img {
+  width: 85px;
+  height: 62px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.enroll-course-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.enroll-course-details h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+body.dark-mode .enroll-course-details h3 {
+  color: #f3f0ff;
+}
+
+.enroll-duration {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.enroll-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #7c3aed;
+}
+
+/* ===============================
+   DIVIDER
+================================= */
+.enroll-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.2rem;
+}
+
+.enroll-divider::before,
+.enroll-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+.enroll-divider span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+/* ===============================
+   FORM
+================================= */
+.enroll-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #374151;
+  text-transform: uppercase;
+}
+
+body.dark-mode .form-group label {
+  color: #c4b5fd;
+}
+
+.form-group input {
+  padding: 12px 16px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  outline: none;
+  background: #fafafa;
+  transition: 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+  background: #fff;
+}
+
+body.dark-mode .form-group input {
+  background: #2d2545;
+  border-color: #4c1d95;
+  color: #f3f0ff;
+}
+
+/* ===============================
+   INPUT ICON
+================================= */
+.input-icon-wrap {
+  position: relative;
+}
+
+.input-icon-wrap input {
+  padding-right: 40px;
+}
+
+.card-chip {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ===============================
+   FORM ROW
+================================= */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+/* ===============================
+   ERROR
+================================= */
+.error {
+  color: #dc2626;
+  font-size: 0.75rem;
+}
+
+/* ===============================
+   SECURE BADGE
+================================= */
+.secure-badge {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #16a34a;
+  background: #f0fdf4;
+  border-radius: 10px;
+  padding: 8px;
+}
+
+/* ===============================
+   PAY BUTTON
+================================= */
+.btn-pay {
+  padding: 14px;
+  background: linear-gradient(135deg, #7c3aed, #9333ea);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.btn-pay:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(124, 58, 237, 0.4);
+}
+
+.btn-pay:disabled {
+  background: #c4b5fd;
+  cursor: not-allowed;
+}
+
+/* ===============================
+   LOADING
+================================= */
+.loading-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===============================
+   CANCEL BUTTON
+================================= */
+.btn-cancel {
+  padding: 12px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 14px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.btn-cancel:hover {
+  border-color: #7c3aed;
+  color: #7c3aed;
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
+@media (max-width: 600px) {
+  .enroll-overlay {
+    align-items: flex-start;
+    overflow-y: auto;
+    padding: 20px;
+  }
+
+  .enroll-card {
+    padding: 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
