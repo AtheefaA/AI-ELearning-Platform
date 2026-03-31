@@ -8,35 +8,47 @@ require('dotenv').config();
 const app = express();
 
 // ✅ CORS
-app.use(cors({
-  origin: "*"
-}));
-
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 // ════════════════════════════════
-// ✅ MySQL Connection (Railway FIXED)
+// ✅ MySQL Connection (Railway FIX)
 // ════════════════════════════════
-const url = new URL(process.env.DATABASE_URL);
+let db;
 
-const db = mysql.createConnection({
-  host: url.hostname,
-  user: url.username,
-  password: url.password,
-  database: url.pathname.replace("/", ""),
-  port: url.port,
+try {
+  const url = new URL(process.env.DATABASE_URL);
+
+  db = mysql.createConnection({
+    host: url.hostname,
+    user: url.username,
+    password: url.password,
+    database: url.pathname.replace("/", ""),
+    port: url.port,
+  });
+
+  db.connect((err) => {
+    if (err) {
+      console.error("❌ MySQL connection failed:", err);
+      process.exit(1);
+    }
+    console.log("✅ Connected to Railway MySQL");
+  });
+
+} catch (err) {
+  console.error("❌ Invalid DATABASE_URL:", err.message);
+  process.exit(1);
+}
+
+// ════════════════════════════════
+// ✅ HEALTH CHECK (IMPORTANT)
+// ════════════════════════════════
+app.get('/health', (req, res) => {
+  res.send("Backend is healthy ✅");
 });
 
-db.connect((err) => {
-  if (err) {
-    console.error('❌ MySQL connection failed:', err);
-    process.exit(1);
-  }
-  console.log('✅ Connected to Railway MySQL');
-});
-
 // ════════════════════════════════
-// ✅ Test Route
+// ✅ TEST ROOT
 // ════════════════════════════════
 app.get('/', (req, res) => {
   res.json({ message: '🚀 AI LearnX Backend is running!' });
@@ -70,10 +82,7 @@ app.post('/api/register', async (req, res) => {
         (err) => {
           if (err) return res.status(500).json({ error: err.message });
 
-          res.json({
-            success: true,
-            message: 'Account created successfully!',
-          });
+          res.json({ success: true, message: 'Account created successfully!' });
         }
       );
     }
@@ -109,7 +118,7 @@ app.post('/api/login', (req, res) => {
 
       const token = jwt.sign(
         { id: user.id, name: user.name, email: user.email },
-        process.env.JWT_SECRET || 'fallback_secret_key',
+        process.env.JWT_SECRET || 'secret',
         { expiresIn: '7d' }
       );
 
@@ -117,8 +126,8 @@ app.post('/api/login', (req, res) => {
         success: true,
         token,
         user: {
-          id:    user.id,
-          name:  user.name,
+          id: user.id,
+          name: user.name,
           email: user.email,
         },
       });
@@ -143,21 +152,18 @@ app.post('/api/enroll', (req, res) => {
       if (err) return res.status(500).json({ error: err.message });
 
       if (results.length > 0) {
-        return res.status(409).json({ error: 'Already enrolled in this course' });
+        return res.status(409).json({ error: 'Already enrolled' });
       }
 
       db.query(
-        `INSERT INTO enrollments
+        `INSERT INTO enrollments 
          (user_id, course_id, course_title, amount, card_holder, progress)
          VALUES (?, ?, ?, ?, ?, 0)`,
         [userId, courseId, courseTitle, amount, cardHolder],
         (err) => {
           if (err) return res.status(500).json({ error: err.message });
 
-          res.json({
-            success: true,
-            message: 'Enrolled successfully!',
-          });
+          res.json({ success: true, message: 'Enrolled successfully!' });
         }
       );
     }
@@ -194,13 +200,13 @@ app.put('/api/progress', (req, res) => {
     (err) => {
       if (err) return res.status(500).json({ error: err.message });
 
-      res.json({ success: true, message: 'Progress updated!' });
+      res.json({ success: true });
     }
   );
 });
 
 // ════════════════════════════════
-// ✅ GET USER PROFILE
+// ✅ USER PROFILE
 // ════════════════════════════════
 app.get('/api/user/:userId', (req, res) => {
   db.query(
@@ -221,7 +227,7 @@ app.get('/api/user/:userId', (req, res) => {
 // ════════════════════════════════
 // ✅ START SERVER
 // ════════════════════════════════
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 10000;
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
