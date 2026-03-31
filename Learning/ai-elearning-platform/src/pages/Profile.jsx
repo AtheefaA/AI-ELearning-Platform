@@ -18,8 +18,8 @@ const Profile = () => {
 
     // Fetch user profile + enrollments in parallel
     Promise.all([
-      fetch(`http://localhost:5000/api/user/${userId}`).then(r => r.json()),
-      fetch(`http://localhost:5000/api/dashboard/${userId}`).then(r => r.json()),
+      fetch(`https://ai-elearning-platform-ojwp.onrender.com/api/user/${userId}`).then(r => r.json()),
+      fetch(`https://ai-elearning-platform-ojwp.onrender.com/api/dashboard/${userId}`).then(r => r.json()),
     ])
       .then(([userData, enrollments]) => {
         setUser(userData);

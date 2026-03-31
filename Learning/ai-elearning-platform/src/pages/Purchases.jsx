@@ -10,7 +10,7 @@ const Purchases = () => {
   const [error, setError]         = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/dashboard/${userId}`)
+    fetch(`https://ai-elearning-platform-ojwp.onrender.com/api/dashboard/${userId}`)
       .then((res) => res.json())
       .then((data) => {
         setPurchases(data);

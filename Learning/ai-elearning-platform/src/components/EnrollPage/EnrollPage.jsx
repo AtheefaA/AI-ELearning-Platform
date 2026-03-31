@@ -58,7 +58,7 @@ const EnrollPage = ({ course, onCancel }) => {
     }
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/enroll", {
+      const res = await fetch("https://ai-elearning-platform-ojwp.onrender.com/api/enroll", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

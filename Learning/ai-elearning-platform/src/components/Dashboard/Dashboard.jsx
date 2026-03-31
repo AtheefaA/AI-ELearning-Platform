@@ -8,7 +8,7 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/dashboard/${userId}`)
+    fetch(`https://ai-elearning-platform-ojwp.onrender.com/api/dashboard/${userId}`)
       .then((res) => res.json())
       .then((data) => { setCourses(data); setLoading(false); })
       .catch(() => setLoading(false));
