@@ -6,46 +6,52 @@ const jwt     = require('jsonwebtoken');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+
+// ✅ CORS
+app.use(cors({
+  origin: "*"
+}));
+
 app.use(express.json());
 
 // ════════════════════════════════
-//  MySQL Connection
+// ✅ MySQL Connection (Railway FIXED)
 // ════════════════════════════════
+const url = new URL(process.env.DATABASE_URL);
+
 const db = mysql.createConnection({
-  host:     process.env.DB_HOST     || 'localhost',
-  user:     process.env.DB_USER     || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME     || 'ai_learning',
+  host: url.hostname,
+  user: url.username,
+  password: url.password,
+  database: url.pathname.replace("/", ""),
+  port: url.port,
 });
 
 db.connect((err) => {
   if (err) {
-    console.error('❌ MySQL connection failed:', err.message);
+    console.error('❌ MySQL connection failed:', err);
     process.exit(1);
   }
-  console.log('✅ MySQL connected successfully');
+  console.log('✅ Connected to Railway MySQL');
 });
 
 // ════════════════════════════════
-//  Test Route
+// ✅ Test Route
 // ════════════════════════════════
 app.get('/', (req, res) => {
   res.json({ message: '🚀 AI LearnX Backend is running!' });
 });
 
 // ════════════════════════════════
-//  REGISTER
+// ✅ REGISTER
 // ════════════════════════════════
 app.post('/api/register', async (req, res) => {
   const { name, email, password } = req.body;
 
-  // Validate fields
   if (!name || !email || !password) {
     return res.status(400).json({ error: 'All fields are required' });
   }
 
-  // Check if email already exists
   db.query(
     'SELECT id FROM users WHERE email = ?',
     [email],
@@ -56,15 +62,14 @@ app.post('/api/register', async (req, res) => {
         return res.status(409).json({ error: 'Email already registered' });
       }
 
-      // Hash the password
       const hashed = await bcrypt.hash(password, 10);
 
-      // Save new user
       db.query(
         'INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
         [name, email, hashed],
-        (err, result) => {
+        (err) => {
           if (err) return res.status(500).json({ error: err.message });
+
           res.json({
             success: true,
             message: 'Account created successfully!',
@@ -76,17 +81,15 @@ app.post('/api/register', async (req, res) => {
 });
 
 // ════════════════════════════════
-//  LOGIN
+// ✅ LOGIN
 // ════════════════════════════════
 app.post('/api/login', (req, res) => {
   const { email, password } = req.body;
 
-  // Validate fields
   if (!email || !password) {
     return res.status(400).json({ error: 'All fields are required' });
   }
 
-  // Find user by email
   db.query(
     'SELECT * FROM users WHERE email = ?',
     [email],
@@ -99,13 +102,11 @@ app.post('/api/login', (req, res) => {
 
       const user = results[0];
 
-      // Compare password with hashed password
       const match = await bcrypt.compare(password, user.password);
       if (!match) {
         return res.status(401).json({ error: 'Invalid email or password' });
       }
 
-      // Generate JWT token
       const token = jwt.sign(
         { id: user.id, name: user.name, email: user.email },
         process.env.JWT_SECRET || 'fallback_secret_key',
@@ -126,17 +127,15 @@ app.post('/api/login', (req, res) => {
 });
 
 // ════════════════════════════════
-//  ENROLL
+// ✅ ENROLL
 // ════════════════════════════════
 app.post('/api/enroll', (req, res) => {
   const { userId, courseId, courseTitle, amount, cardHolder } = req.body;
 
-  // Validate fields
   if (!userId || !courseId || !courseTitle) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
-  // Check if already enrolled
   db.query(
     'SELECT id FROM enrollments WHERE user_id = ? AND course_id = ?',
     [userId, courseId],
@@ -147,7 +146,6 @@ app.post('/api/enroll', (req, res) => {
         return res.status(409).json({ error: 'Already enrolled in this course' });
       }
 
-      // Save enrollment
       db.query(
         `INSERT INTO enrollments
          (user_id, course_id, course_title, amount, card_holder, progress)
@@ -155,6 +153,7 @@ app.post('/api/enroll', (req, res) => {
         [userId, courseId, courseTitle, amount, cardHolder],
         (err) => {
           if (err) return res.status(500).json({ error: err.message });
+
           res.json({
             success: true,
             message: 'Enrolled successfully!',
@@ -166,7 +165,7 @@ app.post('/api/enroll', (req, res) => {
 });
 
 // ════════════════════════════════
-//  DASHBOARD — get enrolled courses
+// ✅ DASHBOARD
 // ════════════════════════════════
 app.get('/api/dashboard/:userId', (req, res) => {
   db.query(
@@ -180,7 +179,7 @@ app.get('/api/dashboard/:userId', (req, res) => {
 });
 
 // ════════════════════════════════
-//  UPDATE PROGRESS
+// ✅ UPDATE PROGRESS
 // ════════════════════════════════
 app.put('/api/progress', (req, res) => {
   const { userId, courseId, progress } = req.body;
@@ -194,13 +193,14 @@ app.put('/api/progress', (req, res) => {
     [progress, userId, courseId],
     (err) => {
       if (err) return res.status(500).json({ error: err.message });
+
       res.json({ success: true, message: 'Progress updated!' });
     }
   );
 });
 
 // ════════════════════════════════
-//  GET USER PROFILE
+// ✅ GET USER PROFILE
 // ════════════════════════════════
 app.get('/api/user/:userId', (req, res) => {
   db.query(
@@ -208,17 +208,21 @@ app.get('/api/user/:userId', (req, res) => {
     [req.params.userId],
     (err, results) => {
       if (err) return res.status(500).json({ error: err.message });
-      if (results.length === 0)
+
+      if (results.length === 0) {
         return res.status(404).json({ error: 'User not found' });
+      }
+
       res.json(results[0]);
     }
   );
 });
 
 // ════════════════════════════════
-//  START SERVER
+// ✅ START SERVER
 // ════════════════════════════════
 const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
