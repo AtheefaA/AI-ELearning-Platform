@@ -104,12 +104,6 @@ npm run dev
 
 ---
 
-## 📸 Screenshots
-
-Add your project screenshots here (Home Page, Quiz Page, Dashboard, etc.)
-
----
-
 ## 🔐 Environment Variables
 
 Create a `.env` file in the Backend folder and add:
