@@ -1,7 +1,9 @@
 # 🎓 AI E-Learning Platform
 
-An interactive AI-powered e-learning platform designed to enhance online education through smart content delivery, quizzes, and user engagement features.
+🚀 **Live Demo:**
+👉 [https://your-vercel-link.vercel.app](https://ai-e-learning-platform.vercel.app/)
 
+---
 
 ## 🚀 Project Overview
 
@@ -9,6 +11,7 @@ The **AI E-Learning Platform** is a full-stack web application that provides use
 
 This platform is built to simulate a real-world learning environment with modern UI/UX and scalable backend architecture.
 
+---
 
 ## ✨ Features
 
@@ -22,6 +25,7 @@ This platform is built to simulate a real-world learning environment with modern
 * 💬 Testimonials Section
 * ⚙️ Settings & Help Center
 
+---
 
 ## 🛠️ Tech Stack
 
@@ -40,9 +44,9 @@ This platform is built to simulate a real-world learning environment with modern
 
 * MySQL
 
+---
 
 ## 📁 Project Structure
-
 
 AI-ELearning-Platform/
 │
@@ -65,14 +69,16 @@ AI-ELearning-Platform/
 ├── .gitignore
 └── README.md
 
+---
 
 ## ⚙️ Installation & Setup
 
 ### 1️⃣ Clone the Repository
 
-git clone https://github.com/AtheefaA/AI-ELearning-Platform/tree/main
+git clone [https://github.com/AtheefaA/AI-ELearning-Platform.git](https://github.com/AtheefaA/AI-ELearning-Platform.git)
 cd AI-ELearning-Platform
 
+---
 
 ### 2️⃣ Setup Backend
 
@@ -80,27 +86,29 @@ cd Backend
 npm install
 npm start
 
+---
 
 ### 3️⃣ Setup Frontend
-
 
 cd Learning/ai-elearning-platform
 npm install
 npm run dev
 
+---
 
 ## 🌐 Usage
 
-* Open browser and go to:
-  `http://localhost:5173`
+* Open browser and go to: [http://localhost:5173](http://localhost:5173)
 * Explore courses, quizzes, and features
 * Register/Login to access full functionality
 
+---
 
 ## 📸 Screenshots
 
-*Add your project screenshots here (Home Page, Quiz Page, Dashboard, etc.)*
+Add your project screenshots here (Home Page, Quiz Page, Dashboard, etc.)
 
+---
 
 ## 🔐 Environment Variables
 
@@ -113,6 +121,7 @@ DB_PASSWORD=yourpassword
 DB_NAME=elearning
 JWT_SECRET=yoursecretkey
 
+---
 
 ## 📌 Future Enhancements
 
@@ -121,6 +130,7 @@ JWT_SECRET=yoursecretkey
 * 🎥 Video Learning Integration
 * 🌍 Multi-language Support
 
+---
 
 ## 🤝 Contributing
 
@@ -131,22 +141,25 @@ Contributions are welcome!
 3. Commit your changes
 4. Push and create a Pull Request
 
+---
 
 ## 📄 License
 
 This project is licensed under the MIT License.
 
+---
 
 ## 👩‍💻 Author
 
 **Sajarath Atheefa A**
 
+---
 
 ## 💡 Acknowledgement
 
 Special thanks to all mentors and resources that helped in building this project.
 
+---
 
-💙 *If you like this project, give it a ⭐ on GitHub!*
-
+💙 If you like this project, give it a ⭐ on GitHub!
 
