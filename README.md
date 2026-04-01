@@ -38,7 +38,6 @@ This platform is built to simulate a real-world learning environment with modern
 ### Backend
 
 * Node.js
-* Express.js
 
 ### Database
 
