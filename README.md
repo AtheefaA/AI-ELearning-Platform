@@ -1,7 +1,7 @@
 # 🎓 AI E-Learning Platform
 
 🚀 **Live Demo:**
-👉 [https://your-vercel-link.vercel.app](https://ai-e-learning-platform.vercel.app/)
+👉 [https://ai-e-learning-platform.vercel.app](https://ai-e-learning-platform.vercel.app/)
 
 ---
 
