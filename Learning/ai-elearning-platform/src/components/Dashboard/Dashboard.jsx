@@ -128,9 +128,9 @@ const Dashboard = () => {
           <h3>📝 Upcoming Quizzes</h3>
           <div className="quiz-list">
             {[
-              { title: "Python Fundamentals", due: "5 Nov, 2025" },
-              { title: "Database Systems",    due: "10 Nov, 2025" },
-              { title: "AI & Ethics",         due: "15 Nov, 2025" },
+              { title: "Python Fundamentals", due: "5 Nov, 2026" },
+              { title: "Database Systems",    due: "10 Nov, 2026" },
+              { title: "AI & Ethics",         due: "15 Nov, 2026" },
             ].map((q, i) => (
               <div className="quiz-card" key={i}>
                 <h4>{q.title}</h4>

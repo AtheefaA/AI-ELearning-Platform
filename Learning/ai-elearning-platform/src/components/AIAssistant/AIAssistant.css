@@ -1,15 +1,13 @@
 /* Fullscreen container: centers the chat box under navbar */
 .ai-assistant-container {
   position: fixed;
-  /* min-height: calc(100vh - 200px); */
-  top: 80px;                  /* keep space for navbar */
+  top: 80px;
   left: 0;
   width: 100%;
-  height: calc(100vh - 80px); /* full height minus navbar */
+  height: calc(100vh - 80px);
   display: flex;
-  justify-content: center;    /* center horizontally */
-  align-items: center;        /* center vertically */
-  /* background: linear-gradient(135deg, #f8faff, #eef2ff); */
+  justify-content: center;
+  align-items: center;
   font-family: "Poppins", sans-serif;
   padding: 1rem;
   box-sizing: border-box;
@@ -27,11 +25,15 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+
+  /* Animation */
+  animation: fadeSlideIn 0.6s ease;
 }
 
 /* Header */
 .chat-header {
   background: linear-gradient(90deg, #667eea, #764ba2);
+  background-size: 200% 200%;
   color: #fff;
   padding: 1rem;
   font-weight: bold;
@@ -43,6 +45,9 @@
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+
+  /* Glow animation */
+  animation: gradientShift 4s ease infinite;
 }
 
 /* Messages area */
@@ -55,6 +60,8 @@
   gap: 0.8rem;
   background: #fafbff;
 }
+
+/* Message bubble */
 .chat-message {
   padding: 0.8rem 1rem;
   border-radius: 1rem;
@@ -62,9 +69,12 @@
   font-size: 0.95rem;
   line-height: 1.4;
   word-wrap: break-word;
+
+  /* Animation */
+  animation: messagePop 0.4s ease;
 }
 
-/* User message bubble */
+/* User message */
 .chat-message.user {
   align-self: flex-end;
   background: linear-gradient(90deg, #667eea, #764ba2);
@@ -72,7 +82,7 @@
   border-bottom-right-radius: 0.3rem;
 }
 
-/* Bot message bubble */
+/* Bot message */
 .chat-message.bot {
   align-self: flex-start;
   background: #f1f4ff;
@@ -86,6 +96,8 @@
   border-top: 1px solid #eee;
   background: #fff;
 }
+
+/* Input field */
 .chat-input input {
   flex: 1;
   padding: 0.8rem;
@@ -93,6 +105,13 @@
   outline: none;
   font-size: 1rem;
 }
+
+/* Placeholder animation */
+.chat-input input::placeholder {
+  animation: blink 1.5s infinite;
+}
+
+/* Button */
 .chat-input button {
   background: linear-gradient(90deg, #667eea, #764ba2);
   color: white;
@@ -101,15 +120,45 @@
   font-size: 1rem;
   cursor: pointer;
   transition: 0.3s;
+  position: relative;
+  overflow: hidden;
 }
+
 .chat-input button:hover {
   background: linear-gradient(90deg, #764ba2, #667eea);
 }
 
-/* Scrollbar styling */
+/* Button click effect */
+.chat-input button:active {
+  transform: scale(0.95);
+}
+
+/* Ripple effect */
+.chat-input button::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.8s;
+}
+
+.chat-input button:active::after {
+  transform: translate(-50%, -50%) scale(3);
+  opacity: 1;
+  transition: 0s;
+}
+
+/* Scrollbar */
 .chat-messages::-webkit-scrollbar {
   width: 6px;
 }
+
 .chat-messages::-webkit-scrollbar-thumb {
   background: #c5c9f5;
   border-radius: 5px;
@@ -126,4 +175,43 @@
   .chat-input input {
     font-size: 0.9rem;
   }
+}
+
+/* ---------------- ANIMATIONS ---------------- */
+
+/* Chat box entry */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Message pop */
+@keyframes messagePop {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Header gradient animation */
+@keyframes gradientShift {
+  0% { background-position: left; }
+  50% { background-position: right; }
+  100% { background-position: left; }
+}
+
+/* Placeholder blink */
+@keyframes blink {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
 }
