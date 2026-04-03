@@ -153,61 +153,85 @@
 .status-message.success { color: #2e7d32; }
 .status-message.error { color: #c62828; }
 
-/* === RESPONSIVE FIX === */
+/* ================= RESPONSIVE ================= */
+
 @media (max-width: 900px) {
+  .contact-container {
+    padding: 45px 35px;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
   .contact-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 1.8rem;
-    gap: 25px;
   }
 
-  .contact-left {
-    text-align: center;
-  }
-
-  .form-row {
-    flex-direction: column;
-    gap: 12px;
-  }
-
+  .contact-left,
   .contact-form {
     width: 100%;
-    max-width: 400px;
-    align-items: center;
   }
 
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-  }
-
-  .contact-form button {
-    align-self: center;
-    width: 60%;
+  .contact-email {
+    justify-content: center;
   }
 
   .social-icons {
     justify-content: center;
   }
 
-  .contact-title {
-    font-size: 1.6rem;
+  .form-row {
+    flex-direction: column;
   }
 
-  .contact-subtext {
-    font-size: 0.95rem;
+  .contact-form button {
+    align-self: center;
   }
 }
 
 @media (max-width: 480px) {
   .contact-container {
-    padding: 1.5rem;
-    width: 95%;
+    padding: 35px 20px;
   }
 
-  .contact-form button {
-    width: 100%;
+  .contact-title {
+    font-size: 2rem;
+  }
+}
+
+/* ================= UNIQUE ANIMATIONS ================= */
+
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes revealLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes revealRight {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
