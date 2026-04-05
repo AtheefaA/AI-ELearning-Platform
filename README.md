@@ -148,11 +148,5 @@ This project is licensed under the MIT License.
 
 ---
 
-## 💡 Acknowledgement
-
-Special thanks to all mentors and resources that helped in building this project.
-
----
-
 💙 If you like this project, give it a ⭐ on GitHub!
 
