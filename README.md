@@ -1,8 +1,5 @@
 # 🎓 AI E-Learning Platform
 
-🚀 **Live Demo:**
-👉 [https://ai-e-learning-platform.vercel.app](https://ai-e-learning-platform.vercel.app/)
-
 ---
 
 ## 🚀 Project Overview
